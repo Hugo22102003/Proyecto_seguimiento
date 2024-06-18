@@ -28,7 +28,7 @@ migrate = Migrate()
 migrate.init_app(app, db)
 
 #* Configuracion de flask-wtf
-app.config['SECRET_KEY'] = 'Chupame las bolas perra'
+app.config['SECRET_KEY'] = 'llave_secreta'
 
 #* Configuracion del login de flask
 login_manager = LoginManager()
