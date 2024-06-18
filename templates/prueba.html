@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css" />
+    
+</head>
+<body>
+
+    <div class ='container' >
+        <h1 align = 'center' >  Dropdown dependiente</h1>
+        <div class = "row">
+            <div class = "col-md-6">
+                <label>Select Car</label>
+                <select name="car_brand" data-live-search="true" id="car_brand" class = "form-control" title="Selec Car Brand" >
+                {% for usuario in usuarios %}
+                <option value="{{usuario.id}}">{{usuario.nombre}}</option>
+                {% endfor %}
+                </select>
+            </div>
+            <div class = "col-md-6" >
+                <label > Select Brand </label>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
+    <script>
+        $(document).ready(function ()  {
+            $('#car_brand').selectpicker();
+        });
+    </script>
+
+    
+</body>
+</html>

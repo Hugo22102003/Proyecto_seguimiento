@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitud</title>
+</head>
+<body>
+    {% include 'base.html' %}
+    {% block content %}
+        <h1>Solicitud</h1>
+        {% for message in get_flashed_messages() %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            {{message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
+        <form method="POST">
+            {{solicitudForm.csrf_token}}
+            <p>
+                {{solicitudForm.empresa.label(class = "form-label")}} <br/>
+                {{solicitudForm.empresa(class = "form-control")}}
+            </p>
+            <p>
+                {{solicitudForm.descripcion.label(class = "form-label")}} <br/>
+                {{solicitudForm.descripcion(class = "form-control")}}
+            </p>
+            <p>
+                {{solicitudForm.numero.label(class="form-label")}} <br/>
+                {{solicitudForm.numero(class="form-control")}}
+            </p>
+            <p>
+                {{solicitudForm.firmante.label(class = "form-label")}} <br/>
+                {{solicitudForm.firmante(class = "form-control")}}
+            </p>
+            <p>
+                {{solicitudForm.solicitante_id.label(class = "form-label")}}
+                {{solicitudForm.solicitante_id(class = "form-select")}}
+            </p>
+            <p>
+                {{solicitudForm.empresa_id.label(class = 'fomr-label')}}
+                {{solicitudForm.empresa_id(class = 'form-select')}}
+            </p>
+            <p>
+                {{solicitudForm.guardar(class = 'btn btn-dark')}}
+            </p>
+            <a class="btn btn-dark" href="solicitante" role="button"> Regsitrar solicitante</a>
+            <a class="btn btn-dark" href="empresa" role="button">Registrar empresa</a>
+           
+        </form>
+    {% endblock %}
+</body>
+</html>

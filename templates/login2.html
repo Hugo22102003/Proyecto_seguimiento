@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{url_for('static', filename = 'css/style2.css')}}">
+
+</head>
+ 
+  
+<body>
+      <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    -->
+    {% for message in get_flashed_messages() %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            {{message}}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+    {% endfor %}
+    <header class="header">
+        <div class="logo">
+            <img src="{{url_for('static', filename='img/inealogo.png')}}" alt="">
+        </div>
+        
+       
+    </header>
+    <section class="container">
+        <header>Login</header>
+        <form action="" method="POST" class="form" id="formulario">
+            <div>
+                <div class="input-box">
+                    <label for="">Usuario</label>
+                    <input type="text" name="usuario">
+                </div>
+            </div>
+            <div class="input-box">
+                <label for="">Contraseña</label>
+                <input type="password" name="password" >
+            </div>
+            <button type="submit">Iniciar Sesion</button>
+            <a href="{{url_for('usuarioNuevo')}}">Crear usuario</a>
+        </form>
+    </section>
+</body>
+</html>

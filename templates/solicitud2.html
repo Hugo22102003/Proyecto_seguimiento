@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{url_for('static', filename = 'css/style2.css')}}">
+    <script defer src="{{ url_for('static', filename = 'js/main.js') }}"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="{{url_for('static', filename='img/inealogo.png')}}" alt="">
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="{{url_for('inicio')}}">Inicio</a></li>
+                <li><a href="{{url_for('solicitud_nuevo')}}">Solicitud</a></li>
+                <li><a href="{{url_for('logout')}}">Cerrar Sesion</a></li>
+                <li><a href="{{url_for('todo')}}">Tareas</a></li>
+                <li><a href="{{url_for('asignar2')}}">Usuario</li>
+            </ul>
+        </nav>
+        <a href="{{url_for('mostrar')}}" class="btn" ><button class="btn-button" >Seguimiento</button></a>
+    </header>
+    <section class="container" >
+        <form action="" method="POST" class="form" id="formulario">
+            <div>
+                <div class="input-box">
+                    <label for="">Empresa/Persona</label>
+                    <input type="text" name="empresa">
+                </div>
+            </div>
+            <div>
+                <div class="input-box" >
+                    <label for="">Descripcion</label>
+                    <input type="text" name="descripcion">
+                </div>
+            </div>
+            <div class="formulario__grupo"  id="grupo__numero" >
+                <div class="input-box" >
+                    <label for="">Numero de Solicitud</label>
+                    <input type="number" name="numero">
+                    <p class="formulario__input-error">El campo de numero no debe contener letras</p>
+                </div>
+            </div>
+            <div class="formulario__grupo" id="grupo__firmante" >
+                <div class="input-box">
+                    <label for="">Firmante</label>
+                    <input type="text" name="firmante" id="firmante">
+                    <p class="formulario__input-error">El firmante no debe tener numeros ni simbolos en su nombre</p>
+                </div>
+            </div>
+            <div>
+                <label for="">Empresa</label>
+                <div class="select-box" >
+                    <select name="empresaa" id="">
+                        {% for empresaaa in empresaa %}
+                        <option value="{{empresaaa.id}}">{{empresaaa.nombre}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div>
+                <label for="">Solicitante</label>
+                <div class="select-box">
+                    <select name="solicitante" id="">
+                    {% for solicitante in solicitantes %}
+                    <option value="{{solicitante.id}}"> {{solicitante.nombre}} </option>
+                    {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">La información ha sido enviada exitosamente</p>
+            <button type="submit" > Guardar </button>
+            <div>
+                <a  href="solicitante2">Solicitante</a>
+                <a  href="empresa_nuevo" role="button"> Empresa </a>
+            </div>
+        </form>
+    </section>
+</body>
+</html>

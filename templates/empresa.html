@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empresa</title>
+</head>
+<body>
+    {% include 'base.html' %}
+    {% block content %}
+    <h1>Empresa</h1>
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        {{message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+        {{message }}
+    {% endfor %}
+    <form method = "POST" >
+        {{empresaForm.csrf_token}}
+        <p>
+            {{empresaForm.nombre.label(class = "form-label")}} <br/>
+            {{empresaForm.nombre(class = "form-control")}}
+        </p>
+        <p>
+            {{empresaForm.rif.label(class = "form-label")}} <br/>
+            {{empresaForm.rif(class = "form-control")}}
+        </p>
+        <p>
+            {{empresaForm.direc.label(class = "form-label")}} <br/>
+            {{empresaForm.direc(class = "form-control")}}
+        </p>
+        <p>
+            {{empresaForm.telf.label(class = "form-label")}} <br/>
+            {{empresaForm.telf(class = "form-control")}}
+        </p>
+    
+        <p>
+            {{empresaForm.guardar(class = "btn btn-dark")}}
+        </p>
+    </form>
+    <a class="btn btn-dark" href="solicitud" role="button"> Realizar solicitud</a>
+    <a class="btn btn-dark" href="empresa" role="button" >Registrar empresa</a>
+    {% endblock %}
+
+</body>
+</html>

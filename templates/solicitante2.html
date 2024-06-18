@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename = 'css/style2.css')}}">
+    <script defer src="{{ url_for('static', filename = 'js/main3.js') }}"></script>
+    <title>Document</title>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="{{url_for('static', filename='img/inealogo.png')}}" alt="">
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="{{url_for('inicio')}}">Inicio</a></li>
+                <li><a href="{{url_for('solicitud_nuevo')}}">Solicitud</a></li>
+                <li><a href="{{url_for('logout')}}">Cerrar Sesion</a></li>
+                <li><a href="{{url_for('todo')}}">Tareas</a></li>
+                <li><a href="{{url_for('todo')}}">Tareas</a></li>
+                <li><a href="{{url_for('asignar2')}}">Usuario</li>
+            </ul>
+        </nav>
+        <a href="{{url_for('mostrar')}}" class="btn" ><button class="btn-button" >Seguimiento</button></a>
+    </header>
+    <section class="container" >
+        <header>Solicitante</header>
+        <form action="" method="POST" class="form" id="formulario">
+            <div class="formulario__grupo" id='grupo__cedula'>
+                <div class="input-box">
+                    <label for="">Cedula</label>
+                    <input type="number" name="cedula" id="cedula" required>
+                    <p class="formulario__input-error">La cedula no puede contener letras</p>
+                </div>
+            </div>
+            <div class="formulario__grupo" id='grupo__nombre' >
+                <div class="input-box">
+                    <label for="">Nombre</label>
+                    <input type="text" name="nombre" id="nombre" required>
+                    <p class="formulario__input-error">El nombre no puede contener numeros</p>
+                </div>
+            </div>
+            <div  class="formulario__grupo" id='grupo__tipo'>
+                <div class="input-box">
+                    <label for="">Tipo</label>
+                    <input type="text" name="tipo" id="tipo" required>
+                    <p class="formulario__input-error">El nombre no puede contener numeros</p>
+                </div>
+            </div>
+            <div>
+                <div class="input-box">
+                    <label for="">Direccion</label>
+                    <input type="text" name="direccion" required >
+                </div>
+            </div>
+            <div class="formulario__grupo" id='grupo__telefono'>
+                <div class="input-box">
+                    <label for="">Telefono</label>
+                    <input type="number" name="telefono" id="telefono" required>
+                    <p class="formulario__input-error">El Telefono no pueden contener letras</p>
+                </div>
+            </div>
+            <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">La información ha sido enviada exitosamente</p>
+            <p class="formulario__mensaje-error" id="formulario__mensaje-error"  >Por favor completa todos los campos</p>
+                <button type="submit" > Guardar</button>
+                <a  href="solicitante2">Solicitante</a>
+                <a  href="empresa_nuevo"> Empresa </a>
+            </form>
+    </section>
+</body>
+</html>

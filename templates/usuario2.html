@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{url_for('static', filename = 'css/style2.css')}}">
+    <script defer src="{{ url_for('static', filename = 'js/main2.js') }}"></script>
+</head>
+<body>
+    <section class="container" >
+        <header>Usuario</header>
+        <form action="" method="POST" class="form" id="formulario">
+            <div class="formulario__grupo" id='grupo__usuario' >
+                <div class="input-box"  >
+                    <label for="">Nombre de Usuario</label>
+                    <input type="text" name="username" id="username" required>
+                    <p class="formulario__input-error">El usuario tiene que tener mas de 4 caracteres y no puede tener simbolos</p>
+                </div>
+            </div>
+            <div class="formulario__grupo" id="grupo__nombre" >
+                <div class="input-box">
+                    <label for="">Nombre</label>
+                    <input type="text" name="nombre" id="nombre" required>
+                    <p class="formulario__input-error">El nombre no puede contener numeros ni simbolos :/</p>
+                </div>
+            </div>
+            <div class="formulario__grupo" id="grupo__apellido">
+                <div class="input-box">
+                    <label for="">Apellido</label>
+                    <input type="text" name="apellido" id="apellido">
+                    <p class="formulario__input-error">El apellido no puede contener numeros ni simbolos :/</p>
+                </div>
+            </div>
+            <div class="formulario__grupo" id="grupo__cedula">
+                <div class="input-box" >
+                    <label for="">Cedula</label>
+                    <input type="number" name="cedula" id="cedula" placeholder="12670906">
+                    <p class="formulario__input-error">La cedula debe tener mas de 4 digitos</p>
+                </div>
+            </div>
+            <div class="formulario__grupo" id="grupo__cargo" >
+                <div class="input-box" >
+                    <label for="">Cargo</label>
+                    <input type="text" name="cargo" id="cargo">
+                    <p class="formulario__input-error">El cargo no puede contener numeros</p>
+                </div>
+            </div>
+            <div>
+                <label for="">Departamento</label>
+                <div class="select-box">
+                    <select name="departamento" id="" >
+                    {% for depart in departamentos %}
+                    <option value="{{depart.id}}">{{depart.nombre}}</option>
+                    {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="formulario__grupo" id="grupo__password" >
+                <div class="input-box">
+                    <label for="">Contraseña</label>
+                    <input type="password" name="password">
+                    <p class="formulario__input-error">La contraseña debe tener entre 4 y 12 caracteres</p>
+                </div>
+            </div> 
+            <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">La información ha sido enviada exitosamente</p>
+            <p class="formulario__mensaje-error" id="formulario__mensaje-error"  >Por favor completa todos los campos</p>
+            <button type="submit"  > Guardar</button>
+            <a href="{{url_for('/')}}"></a>
+        </form>
+        
+    </section>
+
+    
+
+
+</body>
+</html>

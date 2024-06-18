@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% include 'base.html' %}
+    {% block content %}
+        {% for message in get_flashed_messages() %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            {{message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+            
+        {% endfor %}
+        <form action="" method="POST">
+            {{asignarForm.csrf_token}}
+            <p>
+            <h1>Numero de solicitud: {{asignar.solicitud.numero}} </h1> 
+            </p>
+            <p>
+                {{asignarForm.estado.label(class = "form-label")}}
+                {{asignarForm.estado( class = "form-control")}}
+            </p>
+            <p>
+                {{asignarForm.guardar(class = "btn btn-dark")}}
+            </p>
+        </form>
+    {% endblock %}
+</body>
+</html>

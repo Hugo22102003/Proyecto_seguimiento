@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% include 'base2.html' %}
+    {% block content %}
+        <h1>Login</h1>
+        {% for message in get_flashed_messages() %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            {{message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
+        <form method = "POST">
+            {{loginForm.csrf_token}}
+            <p>
+                {{loginForm.username.label(class='form-label')}}
+                {{loginForm.username(class = 'form-control')}}
+
+            </p>
+            <p>
+                {{loginForm.password.label(class = 'form-label')}}
+                {{loginForm.password(class = 'form-control')}}
+            </p>
+            <p>
+                {{loginForm.iniciar(class = 'btn btn-primary')}}
+            </p>
+            <a href="usuario">Crear cuenta</a>
+        </form>
+    {% endblock %}
+</body>
+</html>

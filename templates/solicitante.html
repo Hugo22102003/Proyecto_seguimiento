@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% include 'base.html' %}
+    {% block content %}
+        {% for message in get_flashed_messages() %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            {{message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+            {{message }}
+        {% endfor %}
+        <form method="POST">
+            {{solicitanteForm.csrf_token}}
+            <p>
+                {{solicitanteForm.tipo.label(class = "form-label")}}
+                {{solicitanteForm.tipo(class = "form-control")}}
+            </p>
+            <p>
+                {{solicitanteForm.nombre.label(class = "form-label")}}
+                {{solicitanteForm.nombre(class = "form-control")}}
+            </p>
+            <p>
+                {{solicitanteForm.ci.label(class = "form-label")}}
+                {{solicitanteForm.ci(class = "form-control")}}
+            </p>
+            <p>
+                {{solicitanteForm.direccion.label(class = "form-label")}}
+                {{solicitanteForm.direccion(class = "form-control")}}
+            </p>
+            <p>
+                {{solicitanteForm.telefono.label(class = "form-label")}}
+                {{solicitanteForm.telefono(class = "form-control")}}
+            </p>
+            <p>
+                {{solicitanteForm.guardar(class = "btn btn-primary")}}
+            </p>
+        </form>
+        <a class="btn btn-dark" href="solicitud" role="button" > Realizar solicitud </a>
+        <a class = "btn btn-dark" href="empresa" role="button" >Registrar empresa</a>
+    {% endblock %}
+</body>
+</html>

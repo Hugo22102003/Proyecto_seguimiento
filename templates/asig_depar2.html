@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="{{url_for('static', filename = 'css/style2.css')}}">
+    <script defer src="{{ url_for('static', filename = 'js/script4.js') }}"></script>
+    <script defer src="{{ url_for('static', filename = 'js/script3.js') }}"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="{{url_for('static', filename='img/inealogo.png')}}" alt="">
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="{{url_for('inicio')}}">Inicio</a></li>
+                <li><a href="{{url_for('solicitud_nuevo')}}">Solicitud</a></li>
+                <li><a href="{{url_for('logout')}}">Cerrar Sesion</a></li>
+            </ul>
+        </nav>
+        <a href="#" class="btn" ><button class="btn-button" >Seguimiento</button></a>
+    </header>
+
+    <section class="container" >
+        <form action="" method = "POST" autocomplete="off" class="form">
+            <header>Asignar Departamento</header>
+            <div>
+                <div class="select-box">
+                    <select name="usuario" id="">
+                        {% for usuario in usuarios %}
+                        <option value="{{usuario.id}}">{{usuario.nombre}} {{usuario.apellido}} </option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div>
+                <div class="select-box">
+                    <select name="departamento" id="">
+                        {% for departamento in departamentos %}
+                        <option value="{{departamento.id}}">{{departamento.nombre}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div>
+                <div class="select-box">
+                    <select name="solicitud" id="">
+                        {% for solicitud in solicitudes %}
+                        <option value="{{solicitud.id}}"> {{solicitud.numero}} </option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+                  
+            <button class="btn" id="btn-abrir-modal" >Guardar</button>
+            <dialog  id = "modal" >
+                <div class="container" >
+                    <form action="" method="POST">
+                        <div>
+                            <div class="input-box">
+                                <label for="">Contraseña</label>
+                                <input type="password" name="password" required>
+                            </div>
+                        </div>
+                        <button id="btn-cerrar-modal" type="submit" >Enviar</button>
+                    </form>
+                </div>
+                     
+                
+                 
+             </dialog>
+        </form>
+    </section>
+    
+</body>
+</html>

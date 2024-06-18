@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{url_for('static', filename = 'css/style.css')}}">
+    <script defer src="{{ url_for('static', filename = 'js/script4.js') }}"></script>
+</head>
+<body>
+    <div class="select-box" >
+        <div class="select-option" >
+            <input type="text"  placeholder="Select"  id="soValue" readonly name="">
+        </div>
+        <div class="content" >
+            <div class="search" >
+                <input type="text" id="optionSearch" placeholder="Search" name="">
+            </div>
+            <ul class="options" >
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>PHP</li>
+                <li>Python</li>
+                <li>React</li>
+                <li>Angular</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

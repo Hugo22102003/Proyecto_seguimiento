@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% if usuario_id == current_user.id %}
+
+    <form action="" method="POST">
+        <p>
+        {{asignarForm.departamento.label}}
+        {{asignarForm.departamento(size=30)}}
+        </p>
+        <p>
+            {{asigdeparForm.usuario.label}}
+            {{asignarForm.usuario(size=30)}}
+        </p>
+        <p>
+            {{asigdeparForm.solicitud.label}}
+            {{asigdeparForm.solicitud(size=30)}}
+        </p>
+    </form>
+
+    {% else %}
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        {{message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+        {{message }}
+    {% endfor %}
+
+    {% endif %}
+
+
+
+</body>
+</html>

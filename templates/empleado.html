@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empleados</title>
+</head>
+<body>
+    <h1>Empleados</h1>
+    <form method = "POST">
+        {{empleadoForm.csrf_token}}
+        <p>
+            {{empleadoForm.nombre.label}}
+            {{empleadoForm.nombre(size=30)}}
+        </p>
+        <p>
+            {{empleadoForm.apellido.label}}
+            {{empleadoForm.apellido(size=30)}}
+        </p>
+        <p>
+            {{empleadoForm.ci.label}}
+            {{empleadoForm.ci(size=30)}}
+        </p>
+        <p>
+            {{empleadoForm.cargo.label}}
+            {{empleadoForm.cargo(size=30)}}
+        </p>
+        <p>
+            {{empleadoForm.departamento.label}}
+            {{empleadoForm.departamento(size=10)}}
+        </p>
+        <p>
+            {{empleadoForm.guardar()}}
+        </p>
+    </form>
+    <a href="inicio">Regresar al incio</a>
+</body>
+</html>
