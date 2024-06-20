@@ -48,11 +48,11 @@ formulario.addEventListener('submit', (e) => {
         }, 5000);
         formulario.reset(); 
     }else{
+        e.preventDefault();
         document.getElementById('formulario__mensaje-error').classList.add('formulario__mensaje-error-activo');
         setTimeout(() =>{
             document.getElementById('formulario__mensaje-error').classList.remove('formulario__mensaje-error-activo');
         }, 5000);
-        e.preventDefault();
         
     }
 });
