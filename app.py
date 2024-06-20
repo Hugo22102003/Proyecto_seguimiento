@@ -340,6 +340,40 @@ def estado2(id):
             return render_template("estado2.html")
     return render_template("estado2.html")
 
+#@app.route("/", methods = ["GET", "POST"])
+#def login():
+    
+    #if request.method == "POST":
+    #    try:
+    #        usuario = request.form.get('usuario')
+    #        password = request.form.get("password")
+    #        user = Ususario.query.filter_by(username = usuario).first()
+    #
+    #        if user:
+    #            if check_password_hash(user.password_hash, password):
+    #                login_user(user)
+    #                flash("Ha iniciado sesion correctamente")
+    #                return redirect(url_for('inicio'))
+    #            else:
+    #                flash("Contraseña incorrecta intenta nuevamente")
+    #                return render_template("login2.html")
+    #        else:
+    #            flash("El usuario no existe intenta nuevamente")
+    #            return render_template("login2.html")
+    #    except:
+    #        flash("Ocurrio un error intenta nuevamnet")
+    #        return render_template("login2.html")
+    #return render_template("login2.html")
+
+@app.route("/menu_selec", methods = ["GET", "POST"])
+def select_box():
+    return render_template("select_menu.html")
+
+@app.route("/navbar3", methods = ["GET", "POST"])
+def navbar():
+    return render_template("navbar3.html")
+#https://youtu.be/UN43B6bIrSM?si=9r9OcYkykJe4vayt
+
 @app.route("/", methods = ["GET", "POST"])
 def login():
     
@@ -364,12 +398,3 @@ def login():
             flash("Ocurrio un error intenta nuevamnet")
             return render_template("login2.html")
     return render_template("login2.html")
-
-@app.route("/menu_selec", methods = ["GET", "POST"])
-def select_box():
-    return render_template("select_menu.html")
-
-@app.route("/navbar3", methods = ["GET", "POST"])
-def navbar():
-    return render_template("navbar3.html")
-#https://youtu.be/UN43B6bIrSM?si=9r9OcYkykJe4vayt
