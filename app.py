@@ -8,6 +8,8 @@ from models import   Solicitud, Empresa, Ususario, Solicitante, Departamento, As
 from forms import   SolicitudForm, EmpresaForm, UsuarioForm, LoginForm, SolicitanteForm, DepartamentoForm,  AsginarForm, AsigDeparForm
 from flask_login import login_required, UserMixin, current_user, LoginManager, login_user, logout_user
 from models import Solicitud
+import os
+
 app = Flask(__name__)
 
 # Configuracion de la base de datos 
@@ -17,7 +19,8 @@ URL_DB = 'localhost'
 NAME_DB = 'pasantia_db'
 FULL_URL_DB = f'postgresql://{USER_DB}:{PASS_DB}@{URL_DB}/{NAME_DB}'
 
-app.config['SQLALCHEMY_DATABASE_URI'] = FULL_URL_DB
+#postgres://pasantia_db_user:yRyRcohvrdIJKazEK7qtGvIfR0JFju69@dpg-cppfj6aj1k6c73ei5j50-a.oregon-postgres.render.com/pasantia_db
+app.config['SQLALCHEMY_DATABASE_URI'] =  'postgresql://pasantia_db_o8w5_user:ja2CpZCzXAu0rPkjVsfwcdEfmSf10MM5@dpg-cppi0ndds78s73e99nh0-a.oregon-postgres.render.com/pasantia_db_o8w5'
 app.config['SQL_TRACK_MODIFICATIONS'] = False
 
 #Incializacion del obejto db
