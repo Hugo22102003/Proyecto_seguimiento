@@ -64,7 +64,6 @@ formulario.addEventListener('submit', (e) => {
         setTimeout(() =>{
             document.getElementById('formulario__mensaje-exito').classList.remove('formulario__mensaje-exito-activo');
         }, 5000);
-        formulario.reset(); 
     }else{
         
         document.getElementById('formulario__mensaje-error').classList.add('formulario__mensaje-error-activo');
