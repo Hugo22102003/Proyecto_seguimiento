@@ -58,8 +58,9 @@ inputs.forEach((input) =>{
 
 formulario.addEventListener('submit', (e) => {
    
-    e.preventDefault();
+    e.preventDefault
     if (campos.nombre && campos.cedula && campos.telfono && campos.tipo ){
+        formulario.reset();
         document.getElementById('formulario__mensaje-exito').classList.add('formulario__mensaje-exito-activo');
         setTimeout(() =>{
             document.getElementById('formulario__mensaje-exito').classList.remove('formulario__mensaje-exito-activo');

@@ -10,6 +10,7 @@ const expresiones = {
 const campos = {
     rif: false,
     telefono: false,
+    
 }
 
 
