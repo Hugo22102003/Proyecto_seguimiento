@@ -68,14 +68,14 @@ inputs.forEach((input) =>{
 });
 
 formulario.addEventListener('submit', (e) => {
-  
+    e.preventDefault();
     if(campos.usuario && campos.nombre && campos.apellido && campos.password && campos.cargo && campos.cedula){
         document.getElementById('formulario__mensaje-exito').classList.add('formulario__mensaje-exito-activo');
         setTimeout(() => {
             document.getElementById('formulario__mensaje-exito').classList.remove('formulario__mensaje-exito-activo');
         }, 5000);
     }else{
-        e.preventDefault();
+        
         document.getElementById('formulario__mensaje-error').classList.add('formulario__mensaje-error-activo');
         setTimeout(() => {
             document.getElementById('formulario__mensaje-error').classList.remove('formulario__mensaje-error-activo');

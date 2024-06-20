@@ -7,7 +7,10 @@ const expresiones = {
     telefono: /^\d{1,14}$/
     
 }
-
+const campos = {
+    rif: false,
+    telefono: false,
+}
 
 
 const validarFormulario = (e) => {
@@ -40,15 +43,14 @@ inputs.forEach((input) =>{
 });
 
 formulario.addEventListener('submit', (e) => {
-    
+
+    e.preventDefault();
     if (campos.telefono && campos.rif){
         document.getElementById('formulario__mensaje-exito').classList.add('formulario__mensaje-exito-activo');
         setTimeout(() =>{
             document.getElementById('formulario__mensaje-exito').classList.remove('formulario__mensaje-exito-activo');
         }, 5000);
-        formulario.reset(); 
     }else{
-        e.preventDefault();
         document.getElementById('formulario__mensaje-error').classList.add('formulario__mensaje-error-activo');
         setTimeout(() =>{
             document.getElementById('formulario__mensaje-error').classList.remove('formulario__mensaje-error-activo');

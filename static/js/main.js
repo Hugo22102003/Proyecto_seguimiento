@@ -7,7 +7,10 @@ const expresiones = {
     numero: /^\d{1,14}$/
     
 }
-
+const campos = {
+    firmante: false,
+    numero: false,
+}
 
 
 const validarFormulario = (e) => {
@@ -41,6 +44,7 @@ inputs.forEach((input) =>{
 
 formulario.addEventListener('submit', (e) => {
     
+    e.preventDefault();
     if (campos.firmante && campos.numero){
         document.getElementById('formulario__mensaje-exito').classList.add('formulario__mensaje-exito-activo');
         setTimeout(() =>{
@@ -52,7 +56,6 @@ formulario.addEventListener('submit', (e) => {
         setTimeout(() =>{
             document.getElementById('formulario__mensaje-error').classList.remove('formulario__mensaje-error-activo');
         }, 5000);
-        e.preventDefault();
         
     }
 });
