@@ -272,10 +272,10 @@ def solicitud_nuevo():
 
             db.session.add(solicitud)
             db.session.commit()
-            return render_template("solicitud2.html", solicitante = solicitante, empresa = empresa)
+            return render_template("solicitud2.html", solicitantes = solicitantes, empresaa = empresaa)
         except:
             flash("Ocurrio un error por favor intenta nuevamente")
-            return render_template("solicitud2.html", solicitante = solicitante, empresaa = empresaa)
+            return render_template("solicitud2.html", solicitantes = solicitantes, empresaa = empresaa)
     return render_template("solicitud2.html", solicitantes = solicitantes, empresaa = empresaa)
 
 @app.route("/asig_depar_nuevo", methods =["GET", "POST"])
