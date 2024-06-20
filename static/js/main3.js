@@ -51,7 +51,7 @@ inputs.forEach((input) =>{
 });
 
 formulario.addEventListener('submit', (e) => {
-    e.preventDefault();
+   
     
     if (campos.nombre && campos.cedula && campos.telfono && campos.tipo ){
         document.getElementById('formulario__mensaje-exito').classList.add('formulario__mensaje-exito-activo');
@@ -65,7 +65,7 @@ formulario.addEventListener('submit', (e) => {
         setTimeout(() =>{
             document.getElementById('formulario__mensaje-error').classList.remove('formulario__mensaje-error-activo');
         }, 5000);
-       
+        e.preventDefault();
         
     }
 });
