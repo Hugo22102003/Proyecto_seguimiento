@@ -14,7 +14,7 @@ const campos = {
     nombre: false,
     cedula: false,
     telefono: false,
-    tipo: false,
+    tipo: false
 }
 
 

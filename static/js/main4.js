@@ -9,7 +9,7 @@ const expresiones = {
 }
 const campos = {
     rif: false,
-    telefono: false,
+    telefono: false
     
 }
 
@@ -17,12 +17,12 @@ const campos = {
 const validarFormulario = (e) => {
     switch (e.target.name) {
         case "telefono":
-            validarCampo(expresiones.telefono, e.target, "telefono")
+            validarCampo(expresiones.telefono, e.target, "telefono");
             
         break;
 
         case "rif":
-            validarCampo(expresiones.rif, e.target, "rif")
+            validarCampo(expresiones.rif, e.target, "rif");
         break;
     }
     
@@ -44,7 +44,7 @@ inputs.forEach((input) =>{
 });
 
 formulario.addEventListener('submit', (e) => {
-    
+
     e.preventDefault();
     if (campos.telefono && campos.rif){
         formulario.reset();

@@ -9,19 +9,19 @@ const expresiones = {
 }
 const campos = {
     firmante: false,
-    numero: false,
+    numero: false
 }
 
 
 const validarFormulario = (e) => {
     switch (e.target.name) {
         case "firmante":
-            validarCampo(expresiones.firmante, e.target, "firmante")
+            validarCampo(expresiones.firmante, e.target, "firmante");
             
         break;
 
         case "numero":
-            validarCampo(expresiones.numero, e.target, "numero")
+            validarCampo(expresiones.numero, e.target, "numero");
         break;
     }
     
