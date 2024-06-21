@@ -28,28 +28,28 @@
             <div class="formulario__grupo" id="grupo__apellido">
                 <div class="input-box">
                     <label for="">Apellido</label>
-                    <input type="text" name="apellido" id="apellido">
+                    <input type="text" name="apellido" id="apellido" required>
                     <p class="formulario__input-error">El apellido no puede contener numeros ni simbolos :/</p>
                 </div>
             </div>
             <div class="formulario__grupo" id="grupo__cedula">
                 <div class="input-box" >
                     <label for="">Cedula</label>
-                    <input type="number" name="cedula" id="cedula" placeholder="12670906">
+                    <input type="number" name="cedula" id="cedula" placeholder="12670906" required>
                     <p class="formulario__input-error">La cedula debe tener mas de 4 digitos</p>
                 </div>
             </div>
             <div class="formulario__grupo" id="grupo__cargo" >
                 <div class="input-box" >
                     <label for="">Cargo</label>
-                    <input type="text" name="cargo" id="cargo">
+                    <input type="text" name="cargo" id="cargo" required>
                     <p class="formulario__input-error">El cargo no puede contener numeros</p>
                 </div>
             </div>
             <div>
                 <label for="">Departamento</label>
                 <div class="select-box">
-                    <select name="departamento" id="" >
+                    <select name="departamento" id="">
                     {% for depart in departamentos %}
                     <option value="{{depart.id}}">{{depart.nombre}}</option>
                     {% endfor %}
@@ -59,7 +59,7 @@
             <div class="formulario__grupo" id="grupo__password" >
                 <div class="input-box">
                     <label for="">Contraseña</label>
-                    <input type="password" name="password">
+                    <input type="password" name="password" required>
                     <p class="formulario__input-error">La contraseña debe tener entre 4 y 12 caracteres</p>
                 </div>
             </div> 
