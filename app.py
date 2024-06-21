@@ -334,7 +334,7 @@ def estado2(id):
             asignar.estado = request.form.get("estado")
             asignar.descripcion = request.form.get("descripcion")
             db.session.commit()
-            return render_template("estado2.html")
+            return redirect(url_for('todo'))
         except:
             flash("Ocurrio un error por favor intente nuevamente")
             return render_template("estado2.html")
