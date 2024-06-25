@@ -398,3 +398,19 @@ def login():
             flash("Ocurrio un error intenta nuevamnet")
             return render_template("login2.html")
     return render_template("login2.html")
+
+
+@app.route("/ver_usuario", methods = ["GET", "POST"])
+def ver_usuario():
+    usuarios = Ususario.query.order_by(Ususario.nombre)
+    return render_template("ver_usuario.html", usuarios = usuarios)
+
+@app.route("/editar_usuario/<int:id>", methods = ["GET", "POST"])
+def editar_usuario(id):
+    usuario = Ususario.query.get_or_404(id)
+    if request.method == "POST":
+        password = request.form.get("password")
+        usuario.password_hash = generate_password_hash(password)
+        db.session.commit()
+        return redirect(url_for("login"))
+    return render_template("editar_usuario.html")
