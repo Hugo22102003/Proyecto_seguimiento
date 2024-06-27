@@ -184,7 +184,7 @@ def solcitante2():
             solicitante = Solicitante(nombre = nombre, tipo = tipo, ci = ci, direccion = direccion, telefono = telefono)
             db.session.add(solicitante)
             db.session.commit()
-            return render_template("solicitante2.html")
+            return redirect(url_for('solicitud2.html'))
         except:
             flash("Ocurrio nun error intenta nuevamente")
             return render_template("solicitante2.html")
@@ -319,7 +319,7 @@ def empresa2():
             empresa = Empresa(nombre = nombre, rif = rif, direc = direc, telf = telf)
             db.session.add(empresa)
             db.session.commit()
-            return render_template("empresa2.html")
+            return render_template("solicitud2.html")
         except:
             flash("Ocurrio un error intent nuevamente")
             return render_template("empresa2.html")   
