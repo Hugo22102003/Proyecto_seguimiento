@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="{{url_for('static', filename = 'css/style2.css')}}">
-    <script defer src="{{ url_for('static', filename = 'js/main.js') }}"></script>
 </head>
 <body>
     <header class="header">
@@ -18,39 +17,13 @@
                 <li><a href="{{url_for('solicitud_nuevo')}}">Solicitud</a></li>
                 <li><a href="{{url_for('logout')}}">Cerrar Sesion</a></li>
                 <li><a href="{{url_for('todo')}}">Tareas</a></li>
-                <li><a href="{{url_for('asignar2')}}">Asignacion</li>
+                <li><a href="{{url_for('asignar2')}}">Asignación</li>
             </ul>
         </nav>
         <a href="{{url_for('mostrar')}}" class="btn" ><button class="btn-button" >Seguimiento</button></a>
     </header>
     <section class="container" >
         <form action="" method="POST" class="form" id="formulario">
-            <div>
-                <div class="input-box">
-                    <label for="">Empresa/Persona</label>
-                    <input type="text" name="empresa" required>
-                </div>
-            </div>
-            <div>
-                <div class="input-box" >
-                    <label for="">Descripcion</label>
-                    <input type="text" name="descripcion" required>
-                </div>
-            </div>
-            <div class="formulario__grupo"  id="grupo__numero" >
-                <div class="input-box" >
-                    <label for="">Numero de Solicitud</label>
-                    <input type="number" name="numero">
-                    <p class="formulario__input-error">El campo de numero no debe contener letras</p>
-                </div>
-            </div>
-            <div class="formulario__grupo" id="grupo__firmante" >
-                <div class="input-box">
-                    <label for="">Firmante</label>
-                    <input type="text" name="firmante" id="firmante" required>
-                    <p class="formulario__input-error">El firmante no debe tener numeros ni simbolos en su nombre</p>
-                </div>
-            </div>
             <div>
                 <label for="">Empresa</label>
                 <div class="select-box" >
@@ -71,6 +44,24 @@
                     </select>
                 </div>
             </div>
+            
+            <div>
+                <div class="input-box" >
+                    <label for="">Descripcion</label>
+                    <input type="text" name="descripcion" required>
+                </div>
+            </div>
+            <div class="formulario__grupo"  id="grupo__numero" >
+                <div class="input-box" >
+                    <label for="">Numero de Solicitud</label>
+                    <input type="number" name="numero" min="0">
+                    <p class="formulario__input-error">El campo de numero no debe contener letras</p>
+                </div>
+            </div>
+            
+            </div>
+            
+           
             <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">La información ha sido enviada exitosamente</p>
             <button type="submit" > Guardar </button>
             <div>

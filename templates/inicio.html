@@ -31,6 +31,9 @@
                     <li><a href="{{url_for('logout')}}">Cerrar Sesion</a></li>
                     <li><a href="{{url_for('todo')}}">Tareas</a></li>
                     <li><a href="{{url_for('asignar2')}}">Asignación</li>
+                    {% if current_user.rango == 'ADMINISTRADOR' %}
+                        <li><a href="{{url_for('usuarioNuevo')}}">Usuario</li>
+                    {% endif %}
                 </ul>
             </nav>
             <a href="{{url_for('mostrar')}}" class="btn" ><button class="btn-button" >Seguimiento</button></a>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuario</title>
+</head>
+<body>
+    {% include 'base2.html' %}
+    {% block content %}
+        <h1>Usuario</h1>
+        <form method="POST">
+            {{usuarioForm.csrf_token}}
+            
+            <p>
+                {{usuarioForm.nombre.label(class = 'form-label')}}
+                {{usuarioForm.nombre(class = 'form-control')}}
+            </p>
+            <p>
+                {{usuarioForm.apellido.label(class = 'form-label')}}
+                {{usuarioForm.apellido(class = 'form-control')}}
+            </p>
+            <p>
+                {{usuarioForm.cedula.label(class = 'form-label')}}
+                {{usuarioForm.cedula(class = 'form-control')}}
+            </p>
+            <p>
+                {{usuarioForm.username.label(class = 'form-label')}}
+                {{usuarioForm.username(class = 'form-control')}}
+            </p>
+            <p>
+                {{usuarioForm.cargo.label(class = 'form-label')}}
+                {{usuarioForm.cargo(class = 'form-control')}}
+            </p>
+            <p>
+                {{usuarioForm.departamento.label(class ='form-label')}}
+                {{usuarioForm.departamento(class = 'form-select')}}
+            </p>
+            <p>
+                {{usuarioForm.password_hash.label(class ='form-label')}}
+                {{usuarioForm.password_hash(class = 'form-control')}}
+            </p>
+            <p>
+                {{usuarioForm.password_hash2.label(class = 'form-label')}}
+                {{usuarioForm.password_hash2(class = 'form-control')}}
+            </p>
+            <p>
+                {{usuarioForm.guardar(class ='btn btn-primary')}}
+            </p>
+        </form>
+    {% endblock %}
+</body>
+</html>

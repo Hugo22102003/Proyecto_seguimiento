@@ -239,11 +239,12 @@ def usuarioNuevo():
             cedula = request.form.get("cedula")
             cargo = request.form.get("cargo")
             departamento = request.form.get("departamento")
+            rango = request.form.get("rango")
             password = request.form.get("password")
             hashed_pw = generate_password_hash(password)
 
 
-            usuario = Ususario(username = username, nombre = nombre, apellido = apellido, cedula = cedula, cargo = cargo, departamento_id = departamento, password_hash = hashed_pw )
+            usuario = Ususario(username = username, nombre = nombre, apellido = apellido, cedula = cedula, cargo = cargo, departamento_id = departamento, password_hash = hashed_pw, rango = rango )
             db.session.add(usuario)
             db.session.commit()
             flash("La información se envio correctamente")
@@ -256,7 +257,7 @@ def usuarioNuevo():
 @app.route("/solicitud_nuevo", methods = ["GET", "POST"])
 @login_required
 def solicitud_nuevo():
-    responsable = current_user.nombre
+    responsable = current_user.nombre, current_user.apellido
     solicitantes = Solicitante.query.order_by(Solicitante.nombre)
     empresaa = Empresa.query.order_by(Empresa.nombre)
     if request.method == "POST":
@@ -266,9 +267,9 @@ def solicitud_nuevo():
             numero = request.form.get("numero")
             firmante = request.form.get("firmante")
             solicitante = request.form.get("solicitante")
-            empresaa = request.form.get("empresaa")
+            empresas = request.form.get("empresaa")
 
-            solicitud = Solicitud(empresa = empresa, descripcion = descripcion, numero = numero, firmante = firmante, solicitante_id = solicitante, empresa_id = empresaa, responsable = responsable )
+            solicitud = Solicitud(empresa = empresa, descripcion = descripcion, numero = numero, firmante = firmante, solicitante_id = solicitante, empresa_id = empresas, responsable = responsable )
 
             db.session.add(solicitud)
             db.session.commit()
@@ -414,3 +415,9 @@ def editar_usuario(id):
         db.session.commit()
         return redirect(url_for("login"))
     return render_template("editar_usuario.html")
+
+@app.route("/seguimiento", methods =["GET", "POST"])
+def seguimiento():
+    asignados = Asignar.query.all()
+    solicitudes = Solicitud.query.all()
+    return render_template( 'seguimiento.html', asignados=asignados, solicitudes=solicitudes)

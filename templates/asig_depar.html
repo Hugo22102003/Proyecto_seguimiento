@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename = 'css/style.css')}}">
+    <script defer src="{{ url_for('static', filename = 'js/script3.js') }}"></script>
+    
+
+    <title>Asginar departamento</title>
+</head>
+<body>
+    {% include 'base.html' %}
+    {% block content %}
+        <h1>Asignar Departamento</h1>
+        <form action="" method="POST">
+            {{asigdeparForm.csrf_token}}
+            <p>
+                {{asigdeparForm.solicitud_id.label(class = "form-label")}}
+                {{asigdeparForm.solicitud_id(class = "form-select")}}
+            </p>
+            <p>
+                {{asigdeparForm.departamento_id.label(class = "form-label")}}
+                {{asigdeparForm.departamento_id(class = "form-select")}}
+            </p>
+            <p>
+                {{asigdeparForm.usuario_id.label(class = "form-label")}}
+                {{asigdeparForm.usuario_id(class = "form-select")}}
+            </p>
+            <p>
+                {{asigdeparForm.guardar()}}
+            </p>
+        </form>
+        <a href="inicio">Regresar al inicio</a>
+
+        <button id="btn-abrir-modal" > abrir modal</button>
+        
+        <dialog  id = "modal">
+           <div class="container" ></div>
+                <form action="">
+                    <div>
+                        <div class="input-box">
+                            <label for="">Contraseña</label>
+                            <input type="password" name="tipo" required>
+                        </div>
+                    </div>
+                    <button id="btn-cerrar-modal" >cerrar modal</button>
+                </form>
+           </div>
+            
+        </dialog>
+
+        <script>
+
+        </script>
+
+        
+    {% endblock %}
+    
+</html>

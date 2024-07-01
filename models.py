@@ -54,6 +54,7 @@ class Ususario(db.Model, UserMixin):
     apellido = db.Column(db.String(50))
     cedula = db.Column(db.String(50), unique = True)
     cargo = db.Column(db.String(50))
+    rango = db.Column(db.String(50))
     departamento = db.relationship("Departamento")
     departamento_id = db.Column(db.Integer, db.ForeignKey("departamento.id"))
     asignar = db.relationship("Asignar", lazy = "dynamic", backref = "usuario3")
