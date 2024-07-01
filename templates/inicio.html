@@ -62,8 +62,9 @@
                 </tbody>
             </table>
         </div>
-
+        {% if current_user.rango == "ADMINISTRADOR" or current_user.rango == "PRINCIPAL" %}
         <a class = "btn btn-dark"  href="{{url_for('solicitud_nuevo')}}" role="button">Hacer Solicitud</a>
+        {% endif %}
     
         
         
